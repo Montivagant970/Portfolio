@@ -24,4 +24,4 @@ def csvcleaner(file):
   with open(file, 'w') as csvfile:
       writer = csv.writer(csvfile)
       for path, text in out.items():
-        writer.writerow([path, text]) #rewrites the file with the comma delimitatio
+        writer.writerow([path, text]) #rewrites the file with the comma delimitation
