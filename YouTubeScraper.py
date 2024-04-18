@@ -1,3 +1,23 @@
+"""YouTubeScraper is a class containing two tools for working with YouTube videos: contentextractor and researchextractor.
+
+contentextractor is a simple method which downloads the full video and audio to the specified working directory. To specify not wanting one or the other, 
+the respective arguments must be set to False (see below under method definition for more information).
+
+researchextractor was developed as a tool for preparing videos with embedded subtitles and their respective audios for the finetuning of the Whisper LLM. 
+
+The method allows the user to:
+(1) save audio and video files
+(2) create, save, and process frames from the video using OCR to extract embedded subtitle text
+(3) chunk the audio and OCR output into the desired Whisper input (csv file with pathname in column 1 and text content in column 2; 30 second 
+audio chunks corresponding to each row in the csv)
+(4) output an informational csv for debugging, which includes the frame name, the mean OCR score at that frame, and 
+the OCR transcription. 
+
+The return output of the researchextractor is a defaultdict with the frame names as keys and the OCR transcription as its respective value.
+
+This project was a tool developed for the EURAC internship project finetuning the Whisper LLM to South Tyrolean German dialect."""
+
+## Set-Up ##
 !pip install git+https://github.com/pytube/pytube #python -m
 !pip install paddlepaddle -i https://mirror.baidu.com/pypi/simple
 !pip install paddleocr
@@ -22,8 +42,9 @@ import time
 from google.colab import drive
 drive.mount('/content/gdrive')
 
-%cd '/content/gdrive/Shareddrives/AppLingLT/2024/STT/whisper/Jay/YouTube Transcriptions'
+%cd '/path/to/desired/working/directory'
 
+## YouTubeScraper ##
 class YouTubeScraper:
   def __init__(self):
     return None
