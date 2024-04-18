@@ -14,7 +14,7 @@ should house all the audio files to be processed.
 
 This project was a tool developed for the EURAC internship project finetuning the Whisper LLM to South Tyrolean German dialect."""
 
-#Set-up
+## Set-up ##
 import librosa
 import glob
 import csv
@@ -28,7 +28,7 @@ drive.mount('/content/gdrive')
 %cd '/path/to/desired/working/directory'
 
 
-#Loading the Whisper model and processor
+## Loading the Whisper Model and Processor ##
 import torch
 from transformers import WhisperProcessor, WhisperForConditionalGeneration
 
@@ -37,7 +37,7 @@ model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-small")
 forced_decoder_ids = processor.get_decoder_prompt_ids(language="german", task="transcribe")
 
 
-#prep4finetune
+## prep4finetune ##
 def prep4finetune(audio):
   if 'Output Chunked Audios' not in os.listdir(): #creates the two output folders if they do not yet exist
     os.mkdir('Output Chunked Audios')
@@ -85,7 +85,7 @@ def prep4finetune(audio):
   return chunks #returns the signal arrays of all chunks in the audio (if desired)
 
 
-#Running prep4finetune
+## Working with prep4finetune ##
 for track in tqdm(glob.glob('*.wav'), unit = 'Track'): #iterates through all wav files in the working directory
   print(f' Track: {track}.')
   prep4finetune(track)
