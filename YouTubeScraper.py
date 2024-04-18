@@ -1,7 +1,7 @@
 """YouTubeScraper is a class containing two tools for working with YouTube videos: contentextractor and researchextractor.
 
-contentextractor is a simple method which downloads the full video and audio to the specified working directory. To specify not wanting one or the other, 
-the respective arguments must be set to False (see below under method definition for more information).
+contentextractor is a simple method which downloads the full video and audio to the specified working directory. To specify not wanting either the video or
+the audio, the respective arguments in the method call must be set to False (as both are by default True, i.e. on).
 
 researchextractor was developed as a tool for preparing videos with embedded subtitles and their respective audios for the finetuning of the Whisper LLM. 
 
