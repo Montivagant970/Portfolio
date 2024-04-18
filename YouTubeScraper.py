@@ -15,6 +15,10 @@ the OCR transcription.
 
 The return output of the researchextractor is a defaultdict with the frame names as keys and the OCR transcription as its respective value.
 
+The function can be used within Google Drive with Google Colab or locally by specifying the desired working directory. The working directory should house 
+the text document holding the urls to all the videos to be processed, if working with a list of urls. Or if working with a single video, the url can be copied
+directly into the script. 
+
 This project was a tool developed for the EURAC internship project finetuning the Whisper LLM to South Tyrolean German dialect."""
 
 ## Set-Up ##
@@ -43,6 +47,7 @@ from google.colab import drive
 drive.mount('/content/gdrive')
 
 %cd '/path/to/desired/working/directory'
+
 
 ## YouTubeScraper ##
 class YouTubeScraper:
@@ -225,3 +230,18 @@ class YouTubeScraper:
       os.remove(fname)
 
     return output
+
+
+## Working with YouTubeScraper ##
+### List of URLs as txt File ###
+scraper = YouTubeScraper()
+with open('file.txt', 'r') as filein:
+  videos = filein.readlines()
+
+for link in videos:
+  scraper.researchextractor(link, audio = True, chunks = True, csv_info = True, frames = True, video = True) #can be substituted for the contentextractor
+
+### Single File ###
+scraper = YouTubeScraper()
+link = 'https://www.youtube.com/link...'
+scraper.contentextractor(link) #can be substituted for the researchextractor
