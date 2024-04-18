@@ -7,6 +7,7 @@ The present repository is a collection of the various projects and tools that I 
 
 ### Coursework:
 * **minesweepersolver.ipynb** : notebook with a solver for Minesweeper using z3 based on SMT, developed as an exercise for Artificial Intelligence.
+* **tspsolver.ipynb** : notebook with a solver for the Traveling Sales Person (TSP) problem using MiniZinc for constraint satisfaction, developed as an exercise for Artificial Intelligence.
 
 ### Tools:
 * **csvcleaner.py** : tool to convert semicolon delimited csv UTF-8 files from Excel into standard comma separated csv files.
