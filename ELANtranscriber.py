@@ -15,7 +15,7 @@ should house all the ELAN files to be processed.
 
 This project was a tool developed for the EURAC internship project finetuning the Whisper LLM to South Tyrolean German dialect."""
 
-#Set-up
+## Set-up ##
 from bs4 import BeautifulSoup
 import re
 import pickle
@@ -27,7 +27,7 @@ drive.mount('/content/gdrive')
 %cd '/path/to/desired/working/directory'
 
 
-#elantranscriber
+## elantranscriber ##
 def elantranscriber(audio, out_dir, info = False, num_speakers = 11):
   source = open(audio).read() #reads in the .eaf file
   soup = BeautifulSoup(source, 'xml') #turns the .eaf file into a soup object for scraping
@@ -79,7 +79,7 @@ def elantranscriber(audio, out_dir, info = False, num_speakers = 11):
   return
 
 
-#Running elantranscriber
+## Working with elantranscriber ##
 destination = '/path/to/desired/output/directory'
 for elan in glob.glob('*.eaf'): 
   elan_transcriber(elan[-17:], destination, True) #this indexing needs to be changed for the specific file names being used
