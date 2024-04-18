@@ -1,9 +1,11 @@
 """csvcleaner takes a semicolon delimited csv UTF-8 file from Excel and converts it into a comma separated csv file in an effort to standardize file types.
 
 The function can be used within Google Drive with Google Colab or locally by specifying the desired working directory. The working directory
-should house the csv file to be processed."""
+should house the csv file to be processed.
 
-#Set up
+This tool was developed for the EURAC internship project finetuning the Whisper LLM to South Tyrolean German dialect."""
+
+## Set up ##
 import csv
 
 from google.colab import drive
@@ -12,7 +14,7 @@ drive.mount('/content/gdrive')
 %cd '/path/to/desired/working/directory'
 
 
-#csvcleaner
+## csvcleaner ##
 def csvcleaner(file):
   out = {}
 
