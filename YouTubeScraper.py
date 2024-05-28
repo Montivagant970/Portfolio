@@ -58,13 +58,13 @@ class YouTubeScraper:
   def rename(filename): #standardizes the filenames
     s = re.sub(r'\s', '', filename)
     return re.sub(r'[-–]', '_', s)
-  
+
   def contentextractor(self, url, audio = True, video = True):
     """method to quickly retrieve the full audio and video files from a YouTube video.
-    
+
        audio: optional argument which save the FULL audio from the video as an .wav file to the working directory (default on).
        video: optional argument with saves the video as an .mp4 file to the working directory (default on)."""
-    
+
     yt = YouTube(link) #creates a YouTube object for the given video
     stream = yt.streams.filter(progressive = True, file_extension = 'mp4').order_by('resolution').desc().first() #creates a Stream object from the YouTube object
     fname = self.rename(stream.default_filename) #renames the stream and sets to new variable
@@ -76,15 +76,15 @@ class YouTubeScraper:
       audio_clip.close()
     if video == False:
       os.remove(fname) #deletes video if not desired
-    
+
     return
 
   def researchextractor(self, url, audio = False, chunks = False, csv_info = False, frames = False, video = False):
     """method to aid in research, specifically in finetuning the Whisper LLM, using YouTube videos. The method can save audio and video files; create, save, and process frames from the video
-       using OCR to extract embedded subtitle text; chunk the audio and OCR output into the desired Whisper input (csv file with pathname in column 1 and text content in column 2; 30 second 
-       audio chunks corresponding to each row in the csv); and an informational csv for debugging, which includes the frame name, the mean OCR score at that frame, and the OCR transcription.
+       using OCR to extract embedded subtitle text; chunk the audio and OCR output into the desired Whisper input (csv file with pathname in column 1 and text content in column 2); create 30
+       second audio chunks corresponding to each row in the csv; and an informational csv for debugging, which includes the frame name, the mean OCR score at that frame, and the OCR transcription.
        The return output of the researchextractor is a defaultdict with the frame names as keys and the OCR transcription as its respective value. Optional arguments must be specified.
-    
+
        url: url of the video on YouTube.
        audio: optional argument which saves the FULL audio from the video as an .wav file to the working directory (default off).
        chunks: optional argument which saves the audio in chunks of 30 seconds (default off).
@@ -186,40 +186,58 @@ class YouTubeScraper:
           os.mkdir('Output_Prepared_CSVs')
 
         sig, sr = librosa.load(fname[:-4] + '.wav', sr = 16000) #loads the audio into a signal array and sampling rate using librosa
-        chunks = [sig[chunk : chunk + 480000] for chunk in range(0, len(sig), 480000)] #parses the audio into chunks of 30 seconds
-        for i, chunk in enumerate(chunks):
-          sf.write(f'Output_Chunked_Audios/{fname[:-4]}_chunk_{i+1}.wav', chunk, samplerate = sr, subtype = 'PCM_24') #downloads the chunked audio data
 
         with open(f'Output_Prepared_CSVs/{fname[:-4]}.csv' , 'w') as csvfile:
           writer = csv.writer(csvfile)
-          multiplier = 1 #defines the frames selected and the upperbound for each 30 second chunk
-          lowerbound = 0 #the bottom bound of the 30 second chunk
-          hold = []
-          while multiplier != len(output):
-            for frame, text in output.items(): #extract the frame number from the frame name
-              digits = re.findall('[\d]', frame[-4:])
-              if len(digits) == 4:
-                framenum = int(digits[0] + digits[1] + digits[2] + digits[3])
-              elif len(digits) == 3:
-                framenum = int(digits[0] + digits[1] + digits[2])
-              elif len(digits) == 2:
-                framenum = int(digits[0] + digits[1])
-              else:
-                framenum = int(digits[0])
+          counter = 1 #provides a count for the filenames to align them with the audios
+          scaler = 1 #serves as the number which finds the correct upperbound for each 30 second chunk
+          lowerbound = 0 #serves as the number for the lowerbound for each 30 second chunk
+          finaliter = False #allows for the final iteration to be included
+          hold = [] #holds the output for each 30 second chunk
 
-              if lowerbound <= framenum <= multiplier*15: #if the frame number lies within a specific 30 second chunk
-                hold.extend(text) #gather texts that belong to the same 30 second chunk
-
-            if hold == []:
-              break
+          for i, info in enumerate(output.items()):
+            digits = re.findall('[\d]', info[0][-4:]) #extract the frame number from the frame name
+            if len(digits) == 4:
+              framenum = int(digits[0] + digits[1] + digits[2] + digits[3])
+            elif len(digits) == 3:
+              framenum = int(digits[0] + digits[1] + digits[2])
+            elif len(digits) == 2:
+              framenum = int(digits[0] + digits[1])
             else:
-              path = os.getcwd() + '/Output_Prepared_CSVs' + f'/{fname[:-4]}_chunk_{multiplier}.wav' #creates the local pathname
-              content = ' | '.join(hold) #prepares the content for output
-              writer.writerow([path, content]) #write the output csv for finetuning the Whisper model with path location in column 1 and text content in column 2
+              framenum = int(digits[0])
 
-            lowerbound = multiplier * 15
-            multiplier += 1
-            hold = []
+            if i == 0: #if it's the first iteration, pass these conditionals so that the scaler can be calculated
+              pass
+            elif i == len(output) - 1: #if it's the final iteration, change the Boolean so that the final iteration can be included in the output (see below) and save the final audio chunk with content (which is not necessarily the last audio chunk, ergo this saving process must happen here)
+              finaliter = True
+              wavfile = f'{fname[:-4]}_chunk_{counter}.wav' #creates the local pathname
+              chunk = sig[((scaler - 1) * 480000) : ((scaler - 1) * 480000) + 480000] #parses the audio into chunks of 30 seconds where dialog occurs
+              sf.write(f'Output_Chunked_Audios/{wavfile}', chunk, samplerate = sr, subtype = 'PCM_24') #downloads the chunked audio data
+              chunk = sig[((scaler) * 480000) : ((scaler) * 480000) + 240000] #DEBUG LINE: creates a chunk of 15 seconds to catch any remaining dialog, if it exists
+              sf.write(f'Output_Chunked_Audios/{wavfile[:-4]}b.wav', chunk, samplerate = sr, subtype = 'PCM_24') #DEBUG LINE: dowloads this short chunk
+              pass
+            else: #otherwise (for all other cases) evaluate the following
+              if lowerbound <= framenum <= scaler*15: #if the frame number (still) falls within the same 30 second bounds, skip to keep extending the 'hold' list for the current chunk
+                pass
+              else: #if the iteration is no longer in the previous running 30 second chunk, output the list housing the text in that chunk, advance the counter by 1, and empty the 'hold' list for the next iteration
+                wavfile = f'{fname[:-4]}_chunk_{counter}.wav' #creates the local pathname
+                chunk = sig[((scaler - 1) * 480000) : ((scaler - 1) * 480000) + 480000] #parses the audio into chunks of 30 seconds where dialog occurs
+                sf.write(f'Output_Chunked_Audios/{wavfile}', chunk, samplerate = sr, subtype = 'PCM_24') #downloads the chunked audio data
+                content = ' | '.join(hold) #prepares the content for output
+                writer.writerow([wavfile, content]) #write the output csv for finetuning the Whisper model with path location in column 1 and text content in column 2
+                counter += 1
+                hold = []
+
+            scaler = int(framenum / 15) + (framenum % 15 > 0) #calculates the scaler which finds the appropriate upperbound for any given frame number
+            lowerbound = (scaler - 1) * 15 #defines the lower bound of the 30 second chunk
+
+            if lowerbound <= framenum <= scaler*15: #if the frame number lies within a specific 30 second chunk (which it must, since both values are tailored to the frame - might be redundant?)
+              hold.extend(info[1]) #extend the 'hold' list with texts that belong to the same 30 second chunk
+
+            if finaliter == True: #if it's the final iteration, output the final list
+              content = ' | '.join(hold) #prepares the content for output
+              writer.writerow([wavfile, content]) #write the output csv for finetuning the Whisper model with path location in column 1 and text content in column 2
+              finaliter = False #resets the Boolean
 
         if audio == False:
           os.remove(fname[:-4] + '.wav') #remove the audio file from the working directory if not desired
