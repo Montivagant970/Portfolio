@@ -8,11 +8,11 @@ The present repository is a collection of the various projects and tools that I 
 
 ### Coursework:
 * *Artificial Intelligence*
- * **minesweepersolver.ipynb** : notebook with a solver for Minesweeper using z3 based on SMT, developed as an exercise for Artificial Intelligence.
- * **tspsolver.ipynb** : notebook with a solver for the Traveling Sales Person (TSP) problem using MiniZinc for constraint satisfaction, developed as an exercise for Artificial Intelligence.
- * **minigridsolver.ipynb** : notebook with a solver for a Minigrid environment using PDDL planning, developed as an exercise for Artificial Intelligence.
-   * **minigrid-domain.pddl** : file describing the PDDL domain including predicates and actions.
-   * **minigrid-problem.pddl** : file describing the PDDL problem including objects, init states, and goals.
+  * **minesweepersolver.ipynb** : notebook with a solver for Minesweeper using z3 based on SMT, developed as an exercise for Artificial Intelligence.
+  * **tspsolver.ipynb** : notebook with a solver for the Traveling Sales Person (TSP) problem using MiniZinc for constraint satisfaction, developed as an exercise for Artificial Intelligence.
+  * **minigridsolver.ipynb** : notebook with a solver for a Minigrid environment using PDDL planning, developed as an exercise for Artificial Intelligence.
+    * **minigrid-domain.pddl** : file describing the PDDL domain including predicates and actions.
+    * **minigrid-problem.pddl** : file describing the PDDL problem including objects, init states, and goals.
 
 ### Personal Projects:
 
