@@ -1,9 +1,8 @@
 import re, math, time
-import matplotlib.pyplot as plt
 from sklearn import metrics
 
-class FakeNewsClassifier:
-  """The FakeNewsClassifier class applies a Multinomial Naiive Bayes classification
+class NewsClassifier:
+  """The NewsClassifier class applies a Multinomial Naiive Bayes classification
   on text data.
 
   To instantiate the class, five arguments must be passed:
@@ -38,7 +37,6 @@ class FakeNewsClassifier:
     ## defines the categories ##
     for tup in data:
       try:
-        int(tup[1])
         self.categories.append(tup[1])
       except:
         pass
@@ -76,7 +74,7 @@ class FakeNewsClassifier:
     mid = time.time()
     print(f'     Data preparation elapsed {round(mid - start, 2)} seconds.')
 
-    ## tests accuracy ##
+    ## tests the accuracy ##
     if test == True:
       print('\nTesting Accuracy...')
       self.test(buckets, skipbucket, output = True, mets = True)
@@ -106,6 +104,7 @@ class FakeNewsClassifier:
         for tup in content:
           text = re.sub('[\"\'’‘”“,.?!;:*()><&|»«]', '', tup[0])
           text = re.sub('[-/—[]–]', ' ', text)
+          text = re.sub('strong', '', text)
           if tup[1] == category:
             tokens = text.split()
 
@@ -168,6 +167,7 @@ class FakeNewsClassifier:
 
     text = re.sub('[\"\'’‘”“,.?!;:*()><&|»«]', '', testcase)
     text = re.sub('[-/—[]–]', ' ', text)
+    text = re.sub('strong', '', text)
     tokens = text.split()
 
     for token in tokens:
@@ -224,6 +224,6 @@ class FakeNewsClassifier:
 
     if mets == True:
       print('Metrics...')
-      print(metrics.classification_report(y_test, y_pred, zero_division = 0))
+      print(metrics.classification_report(y_test, y_pred))
 
     return float(correct) / total
