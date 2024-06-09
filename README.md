@@ -14,7 +14,8 @@ The present repository is a collection of the various projects and tools that I 
     * **minigrid-domain.pddl** : file describing the PDDL domain including predicates and actions.
     * **minigrid-problem.pddl** : file describing the PDDL problem including objects, init states, and goals.
 * ***Machine Learning:***
-  * **FakeNewsClassifier.py** : class to classify news text as either 'real' or 'fake,' developed as the final project for Machine Learning. 
+  * **Final_ML.ipynb** : notebook outlining the final project I developed for Machine Learning on the automatic classification of fake news content. The notebook contains all the code, documentation, analyses, descriptions, and graphics.
+    * **FakeNewsClassifier.py** : Multinomial Naiive Bayes classifier (class) which sorts news text as either 'real' or 'fake' with around 75% accuracy, developed for the final project of Machine Learning. 
 
 ### Personal Projects:
 
