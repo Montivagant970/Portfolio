@@ -17,7 +17,7 @@ The present repository is a collection of the various projects and tools that I 
   * **Final_ML.ipynb** : notebook outlining the final project I developed for Machine Learning on the automatic classification of fake news content. The notebook contains all the code, documentation, analyses, descriptions, and graphics of the project.
     * **FakeNewsClassifier.py** : Multinomial Naiive Bayes classifier (class) which sorts news text as either 'real' or 'fake' with around 75% accuracy, developed for the final project of Machine Learning.
     *  **NewsClassifier.py** : a tweaked version of the *FakeNewsClassifier* which sorts news by topic, developed for the final project of Machine Learning.
-    *  **scikitkayes.py** : function which tests the fake news dataset on the Gaussian and Multinomial Naiive Bayes classifiers from Scikit-learn, developed for the final project of Machine Learning.
+    *  **scikitbayes.py** : function which tests the fake news dataset on the Gaussian and Multinomial Naiive Bayes classifiers from Scikit-learn, developed for the final project of Machine Learning.
     *  **scikitkNN.py** : function which tests the fake news dataset on the k-Nearest Neighbor classifier from Scikit-learn, developed for the final project of Machine Learning.
     *  **main.py** : exam submission file which runs all the above scripts.
 * ***Computational Linguistics:***
