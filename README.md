@@ -21,7 +21,9 @@ The present repository is a collection of the various projects and tools that I 
     *  **scikitkNN.py** : function which tests the fake news dataset on the k-Nearest Neighbor classifier from Scikit-learn, developed for the final project of Machine Learning.
     *  **main.py** : exam submission file which runs all the above scripts.
 * ***Computational Linguistics:***
+  *  **Final_CL.ipynb** : notebook outlining the final project I developed for Computational Linguistics on topic modelling, specifically Principle Component Analyses (PCA) and Latent Dirichlet Analyses (LDA), for *The Complete Anglo-Saxon Poetry Corpus*. The notebook contains all the code, documentation, analyses, descriptions, and graphics of the project.
 * ***Speech Technologies:***
+  *  **Final_ST.ipynb** : notebook outlining the final project I developed for Speech Technologies for two separate experiments, namely a Whisper STT model evaluation and a machine learning implementation for accent recognition, on *The Speech Accent Archive* from George Mason University. The notebook contains all the code, documentation, analyses, descriptions, and graphics of the project.
 
 ### Personal Projects:
 
