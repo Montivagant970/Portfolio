@@ -14,16 +14,16 @@ The present repository is a collection of the various projects and tools that I 
     * **minigrid-domain.pddl** : file describing the PDDL domain including predicates and actions.
     * **minigrid-problem.pddl** : file describing the PDDL problem including objects, init states, and goals.
 * ***Machine Learning:***
-  * **Final_ML.ipynb** : notebook outlining the final project I developed for Machine Learning on the automatic classification of fake news content. The notebook contains all the code, documentation, analyses, descriptions, and graphics of the project.
+  * **Final_ML.ipynb** : notebook outlining the final project I developed for Machine Learning on the automatic classification of fake news content. The notebook contains all code, documentation, analyses, descriptions, and graphics of the project.
     * **FakeNewsClassifier.py** : Multinomial Naiive Bayes classifier (class) which sorts news text as either 'real' or 'fake' with around 75% accuracy, developed for the final project of Machine Learning.
     *  **NewsClassifier.py** : a tweaked version of the *FakeNewsClassifier* which sorts news by topic, developed for the final project of Machine Learning.
     *  **scikitbayes.py** : function which tests the fake news dataset on the Gaussian and Multinomial Naiive Bayes classifiers from Scikit-learn, developed for the final project of Machine Learning.
     *  **scikitkNN.py** : function which tests the fake news dataset on the k-Nearest Neighbor classifier from Scikit-learn, developed for the final project of Machine Learning.
     *  **main.py** : exam submission file which runs all the above scripts.
 * ***Computational Linguistics:***
-  *  **Final_CL.ipynb** : notebook outlining the final project I developed for Computational Linguistics on topic modelling, specifically Principle Component Analyses (PCA) and Latent Dirichlet Analyses (LDA), for *The Complete Anglo-Saxon Poetry Corpus*. The notebook contains all the code, documentation, analyses, descriptions, and graphics of the project.
+  *  **Final_CL.ipynb** : notebook outlining the final project I developed for Computational Linguistics on topic modelling, specifically Principle Component Analyses (PCA) and Latent Dirichlet Analyses (LDA), for *The Complete Anglo-Saxon Poetry Corpus*. The notebook contains all code, documentation, analyses, descriptions, and graphics of the project.
 * ***Speech Technologies:***
-  *  **Final_ST.ipynb** : notebook outlining the final project I developed for Speech Technologies for two separate experiments, namely a Whisper STT model evaluation and a machine learning implementation for accent recognition, on *The Speech Accent Archive* from George Mason University. The notebook contains all the code, documentation, analyses, descriptions, and graphics of the project.
+  *  **Final_ST.ipynb** : notebook outlining the final project I developed for Speech Technologies for two separate experiments, namely a Whisper STT model evaluation and a machine learning implementation for accent recognition, on *The Speech Accent Archive* from George Mason University. The notebook contains all code, documentation, analyses, descriptions, and graphics of the project.
 
 ### Personal Projects:
 
