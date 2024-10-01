@@ -1,11 +1,6 @@
 # Portfolio - Kelton Jay Hevelone
 The present repository is a collection of the various projects and tools that I have developed for my coursework at the Free University of Bolzano/Bozen and my internship at Eurac Research.
 
-### Internship:
-* **ELANtranscriber.py** : tool to scrape speaker annotation data from ELAN (.eaf) files.
-* **prep4finetune.py** : tool to prepare audio data for finetuning the Whisper LLM by chunking and creating preliminary transcriptions in CSV files.
-* **YouTubeScraper.py** : tool (class) to scrape audio and video data from YouTube, extract embedded subtitle text in the video, and prepare audio/text from videos for finetuning the Whisper LLM.
-
 ### Coursework:
 * ***Artificial Intelligence:***
   * **minesweepersolver.ipynb** : notebook with a solver for Minesweeper using z3 based on SMT, developed as an exercise for Artificial Intelligence.
@@ -25,8 +20,13 @@ The present repository is a collection of the various projects and tools that I 
 * ***Speech Technologies:***
   *  **Final_ST.ipynb** : notebook outlining the final project I developed for Speech Technologies for two separate experiments, namely a Whisper STT model evaluation and a machine learning implementation for accent recognition, on *The Speech Accent Archive* from George Mason University. The notebook contains all code, documentation, analyses, descriptions, and graphics of the project.
 
+### Internship:
+* **ELANtranscriber.py** : tool to scrape speaker annotation data from ELAN (.eaf) files.
+* **prep4finetune.py** : tool to prepare audio data for finetuning the Whisper LLM by chunking and creating preliminary transcriptions in CSV files.
+* **YouTubeScraper.py** : tool (class) to scrape audio and video data from YouTube, extract embedded subtitle text in the video, and prepare audio/text from videos for finetuning the Whisper LLM.
+
 ### Personal Projects:
-~in progress: will update later~
+~ in progress: will update later ~
 
 ### Tools:
 * **csvcleaner.py** : tool to convert semicolon delimited csv UTF-8 files from Excel into standard comma separated csv files.
