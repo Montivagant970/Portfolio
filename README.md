@@ -25,9 +25,12 @@ The present repository is a collection of the various projects and tools that I 
 * **prep4finetune.py** : tool to prepare audio data for finetuning the Whisper LLM by chunking and creating preliminary transcriptions in CSV files.
 * **YouTubeScraper.py** : tool (class) to scrape audio and video data from YouTube, extract embedded subtitle text in the video, and prepare audio/text from videos for finetuning the Whisper LLM.
 
-### Personal Projects:
-~ in progress: will update later ~
-
 ### Tools:
 * **csvcleaner.py** : tool to convert semicolon delimited csv UTF-8 files from Excel into standard comma separated csv files.
 * **audio_metrics_calculator.py** : tool to calculate the duration and size of a folder of audio files.
+
+### Master's Thesis from the Free University of Bolzano/Bozen:
+~ work in progress: will update later ~
+
+### Personal Projects:
+~ work in progress: will update later ~
