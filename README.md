@@ -22,7 +22,10 @@ The present repository is a collection of the various projects and tools that I 
 
 ### Thesis: Master's Thesis from the Free University of Bolzano/Bozen
 *Code was adapted from Le Duy Khanh for the purposes of the project, built originally from [Meta's ASR tutorial](https://huggingface.co/blog/fine-tune-wav2vec2-english). Original repos for [pretraining](https://github.com/khanld/Wav2vec2-Pretraining?tab=readme-ov-file) and [finetuning](https://ithub.com/khanld/ASR-Wav2vec-Finetune) can be found at their respective links.*
-
+* ***Pretraining:***
+  * **pretrain_wav2vec.py** : python script adapted to pretraining the Wav2Vec 2.0 model from Meta for the task of Automatic Speech Recognition (ASR). 
+* ***Finetuning***
+  *  **train.py** : main python script which runs the finetuning pipeline. 
 
 ### Internship:
 * **ELANtranscriber.py** : tool to scrape speaker annotation data from ELAN (.eaf) files.
