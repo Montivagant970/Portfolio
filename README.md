@@ -21,22 +21,21 @@ The present repository is a collection of the various projects and tools that I 
   *  **Final_ST.ipynb** : notebook outlining the final project I developed for Speech Technologies for two separate experiments, namely a Whisper STT model evaluation and a machine learning implementation for accent recognition, on *The Speech Accent Archive* from George Mason University. The notebook contains all code, documentation, analyses, descriptions, and graphics of the project.
 
 ### Thesis: Master's Thesis from the Free University of Bolzano/Bozen
-**My master's thesis, entitled "Automatic Speech Recognition for the South Tyrolean German Dialects," sought to train a functional speech recognition model for the German dialects, capable of outputting in the dialects themselves, while altering its output for the individual writing preferences of the user. The Project consisted likewise with linguistic work with the establishment of dialect writing norms for the purpose of normalizing the input script to the model, called Computational Tyrolean - CompTyr, and fieldwork with the elicitation of over seven hours of labeled dialect data from native speakers to establish the JaCo corpus.**
-*Code was adapted from Le Duy Khanh for the purposes of the project, built originally from [Meta's ASR tutorial](https://huggingface.co/blog/fine-tune-wav2vec2-english). Original repos for [pretraining](https://github.com/khanld/Wav2vec2-Pretraining?tab=readme-ov-file) and [finetuning](https://ithub.com/khanld/ASR-Wav2vec-Finetune) can be found at their respective links.*
+My master's thesis, entitled "Automatic Speech Recognition for the South Tyrolean German Dialects," sought to train a functional speech recognition model for the German dialects, capable of outputting in the dialects themselves, while altering its output for the individual writing preferences of the user. The Project consisted likewise with linguistic work with the establishment of dialect writing norms for the purpose of normalizing the input script to the model, called Computational Tyrolean - CompTyr, and fieldwork with the elicitation of over seven hours of labeled dialect data from native speakers to establish the JaCo corpus. *Code was adapted from Le Duy Khanh for the purposes of the project, built originally from [Meta's ASR tutorial](https://huggingface.co/blog/fine-tune-wav2vec2-english). Original repos for [pretraining](https://github.com/khanld/Wav2vec2-Pretraining?tab=readme-ov-file) and [finetuning](https://ithub.com/khanld/ASR-Wav2vec-Finetune) can be found at their respective links.*
 * ***Pretraining:***
   * **pretrain_wav2vec.py** : script adapted for pretraining the Wav2Vec 2.0 model from Meta for the task of Automatic Speech Recognition (ASR). 
-* ***Finetuning***
-  *  *base*
+* ***Finetuning:***
+  *  *base:*
      *  **base_dataset.py** : script to load the text dataset, clean its contents, and derives the character dictionary from which the model transcribes.
      *  **base_trainer.py** : script to initiate and loop through training epochs with additional functions to resume from checkpoints, load a pretrained model, push to GitHub, and calculate metrics on parameters.
-  *  *dataloader*
+  *  *dataloader:*
      *  **dataset.py** : script to load in the audio dataset using the DataCollator from Meta.
-  *  *logger* :
+  *  *logger:* 
      *  **pbar.py** : script to create and output a progress bar in training.
      *  **tensorboard.py** : script to write training output to a Tensorboard. 
-  *  *trainer*
+  *  *trainer:*
      *  **trainer.py** : script to train the model, including the forward and backwards passes, optimizing steps, clipping gradients, updating parameters, logging, and evaluating.
-  *  *utils*
+  *  *utils:*
      *  **feature.py** : script with functions to load audio data and to chunk or pad chunked audio.
      *  **metric.py** : script with a function to calculate the Word Error Rate (WER) metric.
      *  **utils.py** : script with functions to set seeds and initialize modules. 
@@ -49,6 +48,6 @@ The present repository is a collection of the various projects and tools that I 
 * **YouTubeScraper.py** : tool (class) to scrape audio and video data from YouTube, extract embedded subtitle text in the video, and prepare audio/text from videos for finetuning the Whisper LLM.
 
 ### Tools:
-*Many of which were developed as a means of completing tasks automatically during 
+*Many of the following tools were developed as a means of completing tasks automatically during the thesis process.*
 * **csvcleaner.py** : tool to convert semicolon delimited csv UTF-8 files from Excel into standard comma separated csv files.
 * **audio_metrics_calculator.py** : tool to calculate the duration and size of a folder of audio files.
