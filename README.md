@@ -48,6 +48,10 @@ My master's thesis, entitled "Automatic Speech Recognition for the South Tyrolea
 * **YouTubeScraper.py** : tool (class) to scrape audio and video data from YouTube, extract embedded subtitle text in the video, and prepare audio/text from videos for finetuning the Whisper LLM.
 
 ### Tools:
-*Many of the following tools were developed as a means of completing tasks automatically during the thesis process.*
-* **csvcleaner.py** : tool to convert semicolon delimited csv UTF-8 files from Excel into standard comma separated csv files.
+* **2wav_converter.py** : tool to convert .mp3 or .m4a audio files to .wav.
+* **SmartChunker.py** : tool (class) developed to smart chunk audio files based on Voice Activity Detection (VAD) with an automatic text alignment feature utilizing annotated ELAN files.
+* **audio_compressor.py** : tool to compress or decompress all .wav files in a given directory.
 * **audio_metrics_calculator.py** : tool to calculate the duration and size of a folder of audio files.
+* **corrupted_audio_check.py** : tool to check for corruption in a directory of audio files.
+* **csvcleaner.py** : tool to convert semicolon delimited csv UTF-8 files from Excel into standard comma separated csv files.
+* **podcast_scraper.py** : tool to automatically scrape audios from a website with imbedded data.  
