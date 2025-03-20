@@ -23,9 +23,24 @@ The present repository is a collection of the various projects and tools that I 
 ### Thesis: Master's Thesis from the Free University of Bolzano/Bozen
 *Code was adapted from Le Duy Khanh for the purposes of the project, built originally from [Meta's ASR tutorial](https://huggingface.co/blog/fine-tune-wav2vec2-english). Original repos for [pretraining](https://github.com/khanld/Wav2vec2-Pretraining?tab=readme-ov-file) and [finetuning](https://ithub.com/khanld/ASR-Wav2vec-Finetune) can be found at their respective links.*
 * ***Pretraining:***
-  * **pretrain_wav2vec.py** : python script adapted to pretraining the Wav2Vec 2.0 model from Meta for the task of Automatic Speech Recognition (ASR). 
+  * **pretrain_wav2vec.py** : script adapted for pretraining the Wav2Vec 2.0 model from Meta for the task of Automatic Speech Recognition (ASR). 
 * ***Finetuning***
-  *  **train.py** : main python script which runs the finetuning pipeline. 
+  *  *base*
+    *  **base_dataset.py** : script to load in the text dataset, clean its text contents, and derives the character dictionary from which the model transcribes.
+    *  **base_trainer.py** : script to initiate and loop through training epochs with additional functions to resume from checkpoints, load a pretrained model, push to GitHub, and calculate metrics on parameters.
+  *  *dataloader*
+     *  **dataset.py** : script to load in the audio dataset using the Data Collator from Meta.
+  *  *logger* :
+     *  **pbar.py** : script to create and output a progress bar in training.
+     *  **tensorboard.py** : script to write training output to a Tensorboard. 
+  *  *trainer*
+     *  **trainer.py** : script to train the model, including the forward and backwards passes, step optimization, clipping gradients, updating parameters, logging, and evaluating.
+  *  *utils*
+     *  **feature.py** : script with functions to load audio data and to chunk or pad audio.
+     *  **metric.py** : script with a function to calculate the Word Error Rate (WER) metric.
+     *  **utils.py** : script with functions to set seeds and initialize modules. 
+  *  **train.py** : main script which runs the finetuning pipeline.
+  *  **model_implementation.py** : script to load and implement outputted finetuned models from the training pipeline. 
 
 ### Internship:
 * **ELANtranscriber.py** : tool to scrape speaker annotation data from ELAN (.eaf) files.
