@@ -8,7 +8,7 @@ import os
 import glob
 import shutil
 
-%cd '/path/to/desired/working/directory'
+os.chdir('/path/to/desired/working/directory')
 
 ## Compressor
 def compressor():
