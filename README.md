@@ -20,6 +20,10 @@ The present repository is a collection of the various projects and tools that I 
 * ***Speech Technologies:***
   *  **Final_ST.ipynb** : notebook outlining the final project I developed for Speech Technologies for two separate experiments, namely a Whisper STT model evaluation and a machine learning implementation for accent recognition, on *The Speech Accent Archive* from George Mason University. The notebook contains all code, documentation, analyses, descriptions, and graphics of the project.
 
+### Thesis: Master's Thesis from the Free University of Bolzano/Bozen
+*Code was adapted from Le Duy Khanh for the purposes of the project, built originally from [Meta's ASR tutorial](https://huggingface.co/blog/fine-tune-wav2vec2-english). Original repos for [pretraining](https://github.com/khanld/Wav2vec2-Pretraining?tab=readme-ov-file) and [finetuning](https://ithub.com/khanld/ASR-Wav2vec-Finetune) can be found at their respective links.*
+
+
 ### Internship:
 * **ELANtranscriber.py** : tool to scrape speaker annotation data from ELAN (.eaf) files.
 * **prep4finetune.py** : tool to prepare audio data for finetuning the Whisper LLM by chunking and creating preliminary transcriptions in CSV files.
@@ -28,9 +32,6 @@ The present repository is a collection of the various projects and tools that I 
 ### Tools:
 * **csvcleaner.py** : tool to convert semicolon delimited csv UTF-8 files from Excel into standard comma separated csv files.
 * **audio_metrics_calculator.py** : tool to calculate the duration and size of a folder of audio files.
-
-### Master's Thesis from the Free University of Bolzano/Bozen:
-~ work in progress: will update later ~
 
 ### Personal Projects:
 ~ work in progress: will update later ~
