@@ -8,7 +8,7 @@ import librosa
 from pydub import AudioSegment
 import os
 
-%cd '/path/to/desired/working/directory'
+os.chdir('/path/to/desired/working/directory')
 
 ## Converting all .mp3 to .wav
 audiopaths2change = [audio for audio in glob.glob('*.mp3')]
