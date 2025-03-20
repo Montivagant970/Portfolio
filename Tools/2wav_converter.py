@@ -1,6 +1,6 @@
 """The following code converts all files in a given directory to .wav, if in .mp3 or .m4a formats.
 
-This tool was developed for my master's thesis on "Automatic Speech Recognition for the South Tyrolean German Dialects.""""
+This tool was developed for my master's thesis on "Automatic Speech Recognition for the South Tyrolean German Dialects"."""
 
 ## Set-up ##
 import glob
@@ -23,6 +23,9 @@ for audio in audiopaths2change:
 ## Converting all .m4a to .wav
 audiopaths2change = [audio for audio in glob.glob('*.m4a')] #.m4a
 for audio in audiopaths2change:
-  sound = AudioSegment.from_file(audio, format='m4a')
-  sound.export(audio[:-4] + ".wav", format="wav")
-  os.remove(audio)
+  try:
+    sound = AudioSegment.from_file(audio, format='m4a')
+    sound.export(audio[:-4] + ".wav", format="wav")
+    os.remove(audio)
+  except:
+    print(f'Audio {audio} could not be converted.')
