@@ -7,11 +7,9 @@ This tool was developed for the EURAC internship project finetuning the Whisper 
 
 ## Set up ##
 import csv
+import os
 
-from google.colab import drive
-drive.mount('/content/gdrive')
-
-%cd '/path/to/desired/working/directory'
+os.chdir('/path/to/desired/working/directory')
 
 
 ## csvcleaner ##
