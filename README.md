@@ -42,8 +42,10 @@ My master's thesis, entitled "Automatic Speech Recognition for the South Tyrolea
   *  **train.py** : main script which runs the finetuning pipeline.
   *  **model_implementation.py** : script to load and implement outputted finetuned models from the training pipeline.
 
-### Personal Developement:
-* *Distillery.ManagementSystem*
+### Professional Developement:
+* *Distillery.ManagementSystem:* project created for the purposes of learning the concepts of object-oriented programming, relational databases, and app development during my trial period at ELCA Information Technology. The directory contains more detailed documentation.
+* *Dynamics_F&O:*
+     *  **Distillery.axpp** : test project to conclude my trial period at ELCA Information Technology. Through the use of custom code, chain-of-command, extensions, and event handlers, the project tailors Microsoft Dynamics 365 Finance & Operations to the processes of a hypothetical distillery, including the ability to release new products, manage stock, carry out new production runs, handle sub-processes (preparation, distillation), manage employee schedules, and create orders. A license to Microsoft Dynamics is needed to view the X++ code. 
 
 ### Internship (Eurac Research):
 * **ELANtranscriber.py** : tool to scrape speaker annotation data from ELAN (.eaf) files.
