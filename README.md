@@ -1,5 +1,5 @@
 # Portfolio - Kelton Jay Hevelone
-The present repository is a collection of the various projects and tools that I have developed for my coursework and thesis at the Free University of Bolzano/Bozen and my internship at Eurac Research.
+The present repository is a collection of the various projects and tools that I have developed for my coursework and thesis at the Free University of Bolzano/Bozen, internship at Eurac Research, and trial period at ELCA Information Technology.
 
 ### Coursework:
 * ***Artificial Intelligence:***
