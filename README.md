@@ -40,9 +40,12 @@ My master's thesis, entitled "Automatic Speech Recognition for the South Tyrolea
      *  **metric.py** : script with a function to calculate the Word Error Rate (WER) metric.
      *  **utils.py** : script with functions to set seeds and initialize modules. 
   *  **train.py** : main script which runs the finetuning pipeline.
-  *  **model_implementation.py** : script to load and implement outputted finetuned models from the training pipeline. 
+  *  **model_implementation.py** : script to load and implement outputted finetuned models from the training pipeline.
 
-### Internship:
+### Personal Developement:
+* *Distillery.ManagementSystem*
+
+### Internship (Eurac Research):
 * **ELANtranscriber.py** : tool to scrape speaker annotation data from ELAN (.eaf) files.
 * **prep4finetune.py** : tool to prepare audio data for finetuning the Whisper LLM by chunking and creating preliminary transcriptions in CSV files.
 * **YouTubeScraper.py** : tool (class) to scrape audio and video data from YouTube, extract embedded subtitle text in the video, and prepare audio/text from videos for finetuning the Whisper LLM.
