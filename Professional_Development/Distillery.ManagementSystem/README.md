@@ -1,5 +1,5 @@
 # DISTILLERY MANAGEMENT SYSTEM
-The present directory contains the project created for the purposes of learning the concepts of object-oriented programming, relational databases, and app development during my trial period at ELCA Information Technology.
+The present directory contains the project created for the purposes of learning the concepts of object-oriented programming, relational databases, and app development during my time at ELCA Information Technology.
 
 *  **Program.cs** : entry point to the Distillery Management System.
 *  **SQL_DB.cs** : a mock SQL database, structured as a singleton to ensure only a single instance of the database when running the application.
